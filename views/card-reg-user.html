@@ -1,0 +1,12 @@
+<div class="row w-100 mb-2 border-radius-4px" style="border:{%border%}">
+	<div class="resp-col-3 font-12 text-left border-right"><b>Nome</b><br>{%nome%}</div>
+    <div class="resp-col-4 font-12 text-left border-right"><b>Email</b><br>{%email%}</div>
+    <div class="resp-col-3 font-12 text-left border-right"><b>Status</b><br>{%status%}</div>
+    <div class="resp-col-2 font-12 text-right">
+    	<b>Opções</b><br>
+        <a class="link_hover icon font-13 mr-2" title="Bloquear/Desbloquear Usuário" href="/usuarios?bloq={%hash%}">{%k%}</a>
+        <a class="link_hover icon font-13 mr-2" title="Excluir Usuário" href="/usuarios?excluir={%hash%}" onClick="return confirm_modal(this.href)">x</a>
+        <a class="link_hover icon font-13 mr-2" title="Tornar/Desfazer Admin" href="/usuarios?Tornar_Admin={%hash%}" onClick="return confirm_modal(this.href)">u</a>
+    </div>
+    <div class="col-12 font-9 text-center border-top pt-1 ">{%admin-label%}<b>{%hash%}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inscrito em {%data:>FILTRO_DATA_FORMAT%}</div>
+</div>

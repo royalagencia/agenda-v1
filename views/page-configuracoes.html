@@ -1,0 +1,79 @@
+<div class="container">
+	<div class="row w-100 pt-5">
+    	<h2 class="col-12 font-30 text-center family-title-master mb-5">Configurações</h2>
+        <div class="row w-100 mt-2 mb-2 pt-3 border-radius-8px border_color">
+            <!-- Início Controle de Acesso --> 
+            <h2 class="col-12 font-24 family-title-master text-left mb-3">Controle de Acesso</h2>
+            <div class="col-6">
+                <div class="row w-100">
+                    <h2 class="col-12 font-15 family-title-master bold text-left">Configurações Atuais</h2>
+                    {%regs-controle-de-acesso%}
+                </div>
+            </div>
+            <div class="col-6">
+                <form class="row w-100 formAlt border_left_color" action="" method="post" enctype="multipart/form-data">
+                    <h2 class="col-12 font-15 family-title-master bold text-left mb-3">Nova Configuração</h2>
+                    <div class="col-6">
+                    	<div class="field">
+                        	<input type="text" name="set[0]" placeholder=" " required>
+                        	<p class="label">Diretório</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+	                    <h2 class="w-100 font-12 bold text-left">Acesso</h2>
+                    	<div class="field text-center">
+                        	<input type="radio" name="set[1]" id="adm-i1" value="admin" required>
+                            <label for="adm-i1">Admin</label>
+                            
+                        	<input type="radio" name="set[1]" id="nrm-i1" value="normal" required>
+                            <label for="nrm-i1">Normal</label>
+                        </div>
+                        <input type="hidden" name="token" value="{%token%}">
+                    </div>
+                    <div class="col-12 p-3 text-center mt-3">
+                        <button>Configurar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>
+<div class="container pt-5 border_bottom_color">
+	<div class="row">
+        
+        <!-- Início Controle de Menu --> 
+        <h2 class="col-12 font-24 text-center mb-5">Itens de Menu</h2>
+        <div class="col-8">
+        	<div class="row w-100">
+            	<h2 class="col-12 font-18 text-left">Itens Configurados</h2>
+                {%regs-menu%}
+            </div>
+        </div>
+        <div class="col-4">
+            <form class="row w-100 formAlt" action="" method="post">
+            	<h2 class="col-12 font-18 text-left mb-3">Adicionar Item</h2>
+                <div class="col-12">
+                    <div class="field">
+                    	<input type="text" name="set_menu[0]" placeholder=" " required>
+                        <p class="label">Texto do Item</p>
+                    </div>
+                    <div class="field">
+                    	<input type="text" name="set_menu[1]" placeholder=" " required>
+                        <p class="label">Link</p>
+                    </div>
+                    <h2 class="col-12 font-12 bold text-left mb-1">Tipo de Acesso</h2>
+                    <div class="field text-center">
+                        <input type="radio" name="set_menu[2]" id="nrm-i2" value="normal" required>
+                        <label for="nrm-i2">Normal</label>
+                        <input type="radio" name="set_menu[2]" id="adm-i2" value="admin" required>
+                        <label for="adm-i2">Admin</label>
+                    </div>
+                    <input type="hidden" name="token" value="{%token%}">
+                </div>
+                <div class="col-12 p-3 text-center mt-3 mb-3">
+                    <button>Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row w-100">
+		<!--#CABECALHO#-->
+		<h1 class="col-12 text-center family-title-master font-28">Instalação do Banco de Dados</h1>
+		<form class="row w-100 form___ pt-3 pb-3" onSubmit="carregar()" action="/temp" method="post">
+			<div class="col-3">&nbsp;</div>
+			<div class="col-6 border border-radius-4px p-1">
+				<input type="hidden" name="token" value="{%token%}">
+				<label>Host</label>
+				<input type="text" name="DBhost" value="localhost" class="mb-1" required>
+				<label>User</label>
+				<input type="text" name="DBuser" value="root" class="mb-1" required>
+				<label>Pass</label>
+				<input type="text" name="DBpass" value="" class="mb-1">
+				<label>Nome do Banco de Dados (Já Criado)</label>
+				<input type="text" name="DBname" value="" placeholder="myDB" class="mb-1" required>
+				<div class="text-center p-3 w-100">
+					<button>Enviar</button>
+				</div>
+			</div>
+			<div class="col-3">&nbsp;</div>
+		</form>
+	</div>
+<script>
+function carregar(){
+	$('#loader').fadeIn();
+	$('#loader-label').text('Construindo...');
+	setTimeout(function(){
+		$('#loader-label').text('Configurando...');
+		setTimeout(function(){
+			$('#loader-label').text('Concluindo...');
+		},3000);
+	},4000);
+}
+</script>
+	<!--#SECTIONS#-->
+</div>
+<!--#RODAPE#-->
