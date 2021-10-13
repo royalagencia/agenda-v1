@@ -8,14 +8,21 @@
           <input type="text" placeholder=" " name="titulo" required>
           <p class="label">Compromisso</p>
         </div>
-        <div class="field">
-          <input type="datetime-local" placeholder=" " name="data" required>
-          <p class="label">Data e Hora</p>
+        <div class="field d-flex position-relative">
+          <div class="w-50">
+            <input type="date" placeholder=" " name="data" required>
+            <p class="label">Data</p>
+          </div>
+          <div class="w-50 position-relative">
+            <input type="time" placeholder=" " name="hora" required>
+            <p class="label">Hora</p>
+          </div>
         </div>
         <div class="field">
           <textarea name="info" rows="8" placeholder=" " required></textarea>
           <p class="label">Descrição</p>
         </div>
+        <input type="hidden" name="token" value="{%token%}">
         <div class="w-100 text-center p-3">
           <button>Agendar</button>
           </div>
@@ -26,7 +33,13 @@
 
     <div class="col-8">
       <!-- card -->
-      <div class="card-compromisso">
+      
+      
+      {%compromisso%}
+      
+      
+      
+      <!-- <div class="card-compromisso">
         <div class="time">
           07:00
         </div>
@@ -48,8 +61,21 @@
         <div class="info">
           Lembrar de não cair
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
 </div>
+
+<script>
+  function deletar(hash){
+    $.post("/", {"deletar": hash}, function(e){
+      console.log(e);
+      if(e == "OK"){
+        window.location.href = "";
+      }
+    }).fail(function(){
+      modal("Erro", "Erro, tente mais tarde!");
+    })
+  }
+</script>

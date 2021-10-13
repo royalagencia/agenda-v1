@@ -775,9 +775,38 @@ class Agenda{
 	{
 		$now = date("Y-m-d H:i:s", strtotime("now -4 hours"));
 		$now2 = date("Y-m-d H:i:s", strtotime("now -15 days "));
-		$lista = get_data("SELECT * FROM `yul__agenda` WHERE `data-hora` >= '$now'");
+		$lista = get_data("SELECT * FROM `yul__agenda` WHERE `data-hora` >= '$now' ORDER BY `data-hora` ASC");
 		if($lista){
 			$this->regs = $lista;
+		}
+	}
+	
+	public function getRegs(){
+		return $this->regs;
+	}
+	
+	public static function novo($titulo, $data, $info = ""){
+		$DB = array(
+			"user"=>$_SESSION['key'] ?? "",
+			"data-hora"=>date("Y-m-d H:i:s", strtotime($data)),
+			"titulo"=>FILTRO($titulo),
+			"info"=>urlencode($info),
+			"status"=>"Marcado"
+		);
+		
+		if (insertDB("agenda", $DB, "data, hash")){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static function deletar($hash){
+		if ( verItemDb("agenda", $hash) ){
+			$SQL = "DELETE FROM `yul__agenda` WHERE `hash` = '$hash'";
+			if ( query($SQL) ){
+				return true;
+			} else { return false;}
 		}
 	}
 }
